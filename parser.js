@@ -82,7 +82,7 @@ $(document).ready(function () {
 
     chrome.storage.sync.get({
         url: 'https://jira.atlassian.net',
-        comment: 'Updated via toggl-to-jira https://chrome.google.com/webstore/detail/toggl-to-jira/anbbcnldaagfjlhbfddpjlndmjcgkdpf',
+        comment: 'Updated via toggl-to-jira https://github.com/maros136/Toggl-to-Jira-Chrome-Extension',
         mergeEntriesBy: 'no-merge',
         jumpToToday: false,
     }, function (items) {
@@ -171,6 +171,8 @@ function fetchEntries() {
         entries.forEach(function (entry) {
             entry.description = entry.description || 'no-description';
             var issue = entry.description.split(' ')[0];
+            var entryDescTemp = entry.description;
+            var issueDescription = entryDescTemp.substr(entryDescTemp.indexOf(' ') + 1);//https://stackoverflow.com/questions/10272773/split-string-on-the-first-white-space-occurrence
             var togglTime = entry.duration;
             console.log(togglTime);
 
@@ -197,7 +199,8 @@ function fetchEntries() {
                     submit: (togglTime > 0),
                     timeSpentInt: togglTime,
                     timeSpent: togglTime > 0 ? togglTime.toString().toHHMM() : 'still running...',
-                    comment: config.comment,
+                    //comment: config.comment,
+                    comment: issueDescription,
                     started: dateString,
                     dateKey: dateKey,
                 };

@@ -25,7 +25,7 @@ function restoreOptions() {
     // Use default values
     chrome.storage.sync.get({
         url: 'https://jira.atlassian.net',
-        comment: 'Updated via toggl-to-jira https://chrome.google.com/webstore/detail/toggl-to-jira/anbbcnldaagfjlhbfddpjlndmjcgkdpf',
+        comment: 'Updated via toggl-to-jira https://github.com/maros136/Toggl-to-Jira-Chrome-Extension',
         mergeEntriesBy: 'no-merge',
         jumpToToday: false,
     }, function (items) {
