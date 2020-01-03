@@ -163,7 +163,7 @@ function fetchEntries() {
 
     var dateQuery = '?start_date=' + startDate + '&end_date=' + endDate;
 
-    $.get('https://www.toggl.com/api/v8/time_entries' + dateQuery, function (entries) {
+    $.get('https://toggl.com/api/v8/time_entries' + dateQuery, function (entries) {
         console.log('entries', entries);
         logs = [];
         entries.reverse();
