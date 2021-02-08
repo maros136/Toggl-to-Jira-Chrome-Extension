@@ -134,7 +134,7 @@ function fetchEntries() {
     // Encode the start and end times
     var dateQuery = '?start_date=' + encodeURIComponent(startDateWithTimezoneOffset) + '&end_date=' + encodeURIComponent(endDateWithTimezoneOffset);
 
-    $.get('https://api.track.toggl.com/api/v8/time_entries' + dateQuery, function (entries) {
+    $.get('https://track.toggl.com/api/v8/time_entries' + dateQuery, function (entries) {
         console.log('entries', entries);
         logs = [];
         unloggableTogglEntries = 0;
