@@ -4,16 +4,28 @@
     <head>
         <title>Toggl 2 Jira Options</title>
         <link href="style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="identity.js"></script>
     </head>
 
     <body>
         <i style="float: right;"><a href="https://www.patreon.com/fryyyy?ty=h" target="_blank">support me</a></i>
-        <label>Jira Server url</label> <i>( e.g. <b>https://jira.atlassian.net</b> no trailing / slash )</i>
+        
+        <label><b>Configuration</b></label>
+        <br />
+        <br />
+        <label>Jira Server URL</label> <i>( e.g. <b>https://jira.atlassian.net</b> )</i>
         <input id="jira-url" style="width: 100%;" />
+        <label id="jiraTestResult"></label>
         <br />
         <br />
-        <label>Log Work comment sent with every log</label>
-        <input id="log-comment" style="width: 100%;" />
+        <label>Toggl User API Token</label> <i>( Find yours at <b><a href="https://toggl.com/app/profile" target="_blank">https://toggl.com/app/profile</a></b> )</i>
+        <input id="toggl-api-token" style="width: 100%;" />
+        <label id="togglTestResult"></label>
+        <br />
+        <br />
+        <hr>
+        <label><b>Options</b></label>
         <br />
         <br />
         <label>Should merge Toggl Time by...?</label>
@@ -25,18 +37,33 @@
         </select>
         <br />
         <br />
-        <label>Toggl API token</label> <i>(Use it if you are having trouble to get the log entries from Toggl)</i>
+        <input type="checkbox" id="use-toggl-description" />
+        <label>Use Toggl description as Log Work comment</label>
         <br />
-        <input id="toggl-api-token" style="width: 300px;" />
+        <i>Only works with 'No merge' option above</i>
+        <br />
+        <br />
+        <label>Default Log Work comment sent with every log</label>
+        <input id="log-comment" style="width: 100%;" />
+        <i>Appended to comment if Toggl decription is used above</i>
+        <br />
+        <br />
+        <label>Round duration to next X minutes</label>
+        <input id="round_minutes" style="width: 100%;" />
+        <i>15 will round to to the next quarter => 24mins logged will become 30mins etc.</i>
         <br />
         <br />
         <input type="checkbox" id="jump-to-today" />
         <label>Always jump to today instead of remembering last logged date</label>
         <br />
         <br />
-        <div id="status"></div>
+        <hr>
         <button id="save">Save</button>
-        <script src="options.js"> </script>
+        <label id="status" class="success"></label>
+        <button id="close" style="float: right;">Close</button>
+
+        <!-- Load last since it has pure javascript event handlers -->
+        <script src="options.js"></script>
     </body>
 
 </html>

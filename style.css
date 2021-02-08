@@ -18,10 +18,6 @@ td:nth-of-type(3) {
     text-align: left;
 }
 
-#status {
-    color: #11dda9;
-}
-
 td.success {
     background-color: #1987ac;
     color: white;
@@ -86,6 +82,18 @@ button#submit {
 
 i {
     font-size: 80%;
+}
+
+.success {
+    color: #11dda9;
+}
+
+.warning {
+    color: #f79423;
+}
+
+.error {
+    color: #cc3329;
 }
 
 button:hover {
