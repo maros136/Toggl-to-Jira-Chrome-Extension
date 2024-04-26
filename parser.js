@@ -243,8 +243,9 @@ function renderList() {
                     if (
                         // if date and month matches
                         worklog.started.toDDMM() === log.started.toDDMM() &&
+                        !worklog.comment.localeCompare(log.comment) &&
                         // if duration is within 4 minutes because JIRA is rounding worklog minutes :facepalm:
-                        diff < 4 && diff > -4
+                        diff < 1 && diff > -1
                     ) {
                         $('#result-' + log.id).text('OK').addClass('success').removeClass('info');
                         $('#input-' + log.id).removeAttr('checked').attr('disabled', 'disabled');
